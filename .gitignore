@@ -1,0 +1,51 @@
+###> npm ###
+/node_modules/
+/public/build/
+npm-debug.log
+yarn-error.log
+###< npm ###
+
+###> OS ###
+# OS
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+._*
+###< OS ###
+
+###> Editors ###
+*~
+*.swp
+*.tmproj
+*.tmproject
+*.sublime-*
+.idea/
+.project/
+.settings/
+.vscode/
+###< Editors ###
+
+###> Logs ###
+logs
+*.log
+npm-debug.log*
+###< Editors ###
+
+docker-compose.local.yml
+docker-compose.*.local.yml
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php_cs
+/.php_cs.cache
+###< friendsofphp/php-cs-fixer ###
