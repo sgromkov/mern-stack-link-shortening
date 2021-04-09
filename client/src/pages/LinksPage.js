@@ -23,6 +23,18 @@ export const LinksPage = () => {
         }
     }, [token, request]);
 
+    const removeLinks = useCallback(async (id) => {
+        try {
+            await request('/api/link/delete', 'POST', { id }, {
+                Authorization: `Bearer ${token}`
+            });
+
+            fetchLinks();
+        } catch (error) {
+            console.log(error);
+        }
+    }, [fetchLinks, request, token]);
+
     useEffect(() => {
         fetchLinks();
     }, [fetchLinks]);
@@ -33,7 +45,7 @@ export const LinksPage = () => {
 
     return (
         <>
-            {!loading && <LinksList links={links} />}
+            {!loading && <LinksList links={links} removeLinks={removeLinks} />}
         </>
     );
 };

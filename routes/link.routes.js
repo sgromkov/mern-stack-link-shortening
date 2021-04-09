@@ -32,9 +32,19 @@ router.post('/generate', auth, async (req, res) => {
 
         res.status(201).json({ link });
     } catch (error) {
-        res.status(500).json({
-            message: 'Что-то пошло не так, попробуйте снова'
-        });
+        res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
+    }
+});
+
+router.post('/delete', auth, async (req, res) => {
+    try {
+        const { id } = req.body;
+
+        const result = await Link.findByIdAndRemove(id);
+
+        res.status(201).json({ result });
+    } catch (error) {
+        res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова', error });
     }
 });
 
@@ -43,9 +53,7 @@ router.get('/', auth, async (req, res) => {
         const links = await Link.find({ owner: req.user.userId });
         res.json(links);
     } catch (error) {
-        res.status(500).json({
-            message: 'Что-то пошло не так, попробуйте снова'
-        });
+        res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
     }
 });
 
@@ -54,9 +62,7 @@ router.get('/:id', auth, async (req, res) => {
         const link = await Link.findById(req.params.id);
         res.json(link);
     } catch (error) {
-        res.status(500).json({
-            message: 'Что-то пошло не так, попробуйте снова'
-        });
+        res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' });
     }
 });
 
