@@ -1,4 +1,4 @@
-# mern-vladilen-minin
+# mern-stack-link-shrotening
 
 Short video course about MERN stack
 
